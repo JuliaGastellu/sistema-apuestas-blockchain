@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Tema claro por defecto */
+    --background: 0 0% 100%;           /* Blanco */
+    --foreground: 222.2 84% 4.9%;      /* Texto oscuro */
+
+    --card: 0 0% 100%;                 /* Blanco */
+    --card-foreground: 222.2 84% 4.9%; /* Texto oscuro */
+
+    --popover: 0 0% 100%;              /* Blanco */
+    --popover-foreground: 222.2 84% 4.9%; /* Texto oscuro */
+
+    /* Bitcoin Orange & Ethereum Blue theme */
+    --primary: 264 83% 58%;            /* Púrpura */
+    --primary-foreground: 210 40% 98%; /* Texto claro */
+    --primary-glow: 264 83% 68%;
+
+    --secondary: 210 40% 96%;          /* Gris muy claro */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Texto oscuro */
+
+    --muted: 210 40% 96%;              /* Gris muy claro */
+    --muted-foreground: 215.4 16.3% 46.9%; /* Texto gris */
+
+    --accent: 35 91% 55%;              /* Naranja */
+    --accent-foreground: 222.2 84% 4.9%; /* Texto oscuro */
+
+    --destructive: 0 84% 60%;          /* Rojo */
+    --destructive-foreground: 210 40% 98%; /* Texto claro */
+
+    --border: 214.3 31.8% 91.4%;      /* Borde gris claro */
+    --input: 214.3 31.8% 91.4%;       /* Input gris claro */
+    --ring: 264 83% 58%;               /* Púrpura */
+
+    /* Crypto gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(264 83% 58%), hsl(35 91% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 40% 96%), hsl(0 0% 100%));
+    --gradient-success: linear-gradient(135deg, hsl(120 60% 50%), hsl(120 60% 40%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 50%));
+    
+    /* Crypto shadows */
+    --shadow-crypto: 0 10px 40px -10px hsl(264 83% 58% / 0.3);
+    --shadow-glow: 0 0 50px hsl(264 83% 58% / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Tema oscuro - solo se activa con la clase .dark */
+    --background: 222.2 84% 4.9%;      /* Oscuro */
+    --foreground: 210 40% 98%;         /* Texto claro */
+
+    --card: 222.2 84% 4.9%;           /* Oscuro */
+    --card-foreground: 210 40% 98%;   /* Texto claro */
+
+    --popover: 222.2 84% 4.9%;        /* Oscuro */
+    --popover-foreground: 210 40% 98%; /* Texto claro */
+
+    --primary: 210 40% 98%;           /* Claro */
+    --primary-foreground: 222.2 47.4% 11.2%; /* Texto oscuro */
+
+    --secondary: 217.2 32.6% 17.5%;   /* Gris oscuro */
+    --secondary-foreground: 210 40% 98%; /* Texto claro */
+
+    --muted: 217.2 32.6% 17.5%;       /* Gris oscuro */
+    --muted-foreground: 215 20.2% 65.1%; /* Texto gris */
+
+    --accent: 217.2 32.6% 17.5%;      /* Gris oscuro */
+    --accent-foreground: 210 40% 98%; /* Texto claro */
+
+    --destructive: 0 62.8% 30.6%;     /* Rojo oscuro */
+    --destructive-foreground: 210 40% 98%; /* Texto claro */
+
+    --border: 217.2 32.6% 17.5%;      /* Borde oscuro */
+    --input: 217.2 32.6% 17.5%;       /* Input oscuro */
+    --ring: 212.7 26.8% 83.9%;        /* Anillo claro */
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estilos personalizados para mejorar la visualización */
+@layer utilities {
+  /* Ajustes para gráficos y componentes visuales */
+  .plot-container {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Ajustes para pantallas grandes */
+  @media (min-width: 1280px) {
+    .dashboard-container {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    
+    .wallet-compact {
+      max-width: 280px;
+    }
+  }
+  
+  /* Ajustes para pantallas extra grandes */
+  @media (min-width: 1536px) {
+    .dashboard-container {
+      max-width: 80%;
+    }
+  }
+}
